@@ -1,0 +1,39 @@
+# Virtual Environment
+.venv/
+env/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment Variables
+.env
+
+# Workspace
+workspace/
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Temporary Files
+*.tmp
+*.temp
+.tmp/
+.temp/

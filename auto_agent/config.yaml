@@ -1,0 +1,94 @@
+# Auto Agent Configuration
+
+# Current Environment
+environment: dev
+
+# Environment Configurations
+environments:
+  # Development Environment
+  dev:
+    # LLM Settings
+    llm:
+      default_model: deepseek-chat
+      stream_mode: false
+      thinking_mode: false
+      temperature: 0.7
+      top_p: 0.9
+      max_tokens: 2000
+    
+    # Agent Settings
+    agent:
+      master_agent:
+        name: Master Agent
+        description: 负责接收用户需求，拆解为子任务，分配给子 Agent 执行
+        max_subtasks: 10
+        timeout: 3600
+      
+      sub_agent:
+        name: Sub Agent
+        description: 负责执行具体的子任务，与主 Agent 通信，协调完成任务
+        max_execution_time: 1800
+    
+    # Directory Settings
+    directories:
+      workspace: ./workspace
+      logs: ./logs
+      skills: ./skills
+    
+    # Log Settings
+    log:
+      level: DEBUG
+      format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+      file: ./logs/auto_agent.dev.log
+    
+    # API Settings
+    api:
+      timeout: 30
+      retry_count: 3
+      retry_delay: 2
+  
+  # Production Environment
+  prod:
+    # LLM Settings
+    llm:
+      default_model: anthropic:claude-sonnet-4-5-20250929
+      stream_mode: false
+      thinking_mode: false
+      temperature: 0.3
+      top_p: 0.95
+      max_tokens: 4000
+    
+    # Agent Settings
+    agent:
+      master_agent:
+        name: Master Agent
+        description: 负责接收用户需求，拆解为子任务，分配给子 Agent 执行
+        max_subtasks: 15
+        timeout: 7200
+      
+      sub_agent:
+        name: Sub Agent
+        description: 负责执行具体的子任务，与主 Agent 通信，协调完成任务
+        max_execution_time: 3600
+    
+    # Directory Settings
+    directories:
+      workspace: ./workspace
+      logs: ./logs
+      skills: ./skills
+    
+    # Log Settings
+    log:
+      level: INFO
+      format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+      file: ./logs/auto_agent.prod.log
+    
+    # API Settings
+    api:
+      timeout: 60
+      retry_count: 5
+      retry_delay: 3
+    
+    # Database Settings
+    database:
+      url: postgresql://postgres:postgres@localhost:5432/auto_agent

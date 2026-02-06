@@ -1,0 +1,19 @@
+# 核心依赖
+deepagents
+langchain
+langchain-core
+langgraph
+
+# 模型集成
+langchain-community
+langchain-ollama
+langchain-openai
+
+# 网络请求
+requests
+
+# 数据处理
+pyyaml
+
+# 其他
+python-dotenv
