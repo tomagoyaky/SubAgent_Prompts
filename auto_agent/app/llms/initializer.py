@@ -47,6 +47,10 @@ def initialize_llm_provider(model_name: str, **kwargs) -> Optional[Any]:
         # Add model name to kwargs if not already set
         if "model_name" not in kwargs:
             kwargs["model_name"] = model_name
+        
+        # Enable streaming by default
+        if "stream_mode" not in kwargs:
+            kwargs["stream_mode"] = True
 
         # Use ProviderFactory to create the provider
         return ProviderFactory.create_provider(provider_name, **kwargs)

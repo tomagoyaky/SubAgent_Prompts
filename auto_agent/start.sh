@@ -15,7 +15,7 @@ set -e
 PROJECT_NAME="AutoAgent"
 AGENT_PORT=8000
 CLI_MODE=true
-DEFAULT_USER_INPUT=""
+DEFAULT_USER_INPUT="帮我写一首五言律诗"
 
 ################################################################################
 ## 文件夹定义

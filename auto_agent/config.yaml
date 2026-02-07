@@ -10,7 +10,7 @@ environments:
     # LLM Settings
     llm:
       default_model: deepseek-chat
-      stream_mode: false
+      stream_mode: true
       thinking_mode: false
       temperature: 0.7
       top_p: 0.9

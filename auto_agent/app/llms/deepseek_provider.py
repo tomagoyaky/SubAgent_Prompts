@@ -15,9 +15,12 @@ class DeepSeekProvider(BasicProvider):
 
     def _get_chat_model(self) -> Any:
         """Get DeepSeek chat model instance"""
-        return ChatOpenAI(
-            model=self.model_name,
-            api_key=self.api_key,
-            base_url=self.api_base or "https://api.deepseek.com/v1",
+        # Add streaming parameter
+        chat_kwargs = {
+            "model": self.model_name,
+            "api_key": self.api_key,
+            "base_url": self.api_base or "https://api.deepseek.com/v1",
+            "streaming": self.stream_mode,
             **self.kwargs
-        )
+        }
+        return ChatOpenAI(**chat_kwargs)
